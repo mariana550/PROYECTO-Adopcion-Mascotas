@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Adopción de mascotas </title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <!-- Estilos personalizados -->
+    <link href="Css/style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <nav class="navbar">
+        <div class="logo">
+            <div class="logo-icon">🐾</div>
+            <div>
+                <h1>Pet<span>Love</span></h1>
+                <p>Adopta · Cuida · Cambia vidas</p>
+            </div>
+        </div>
+        <ul class="nav-links">
+            <li>
+                <a href="#mascotas" class="activo">🐾 Mascotas</a></li>
+            <li><a href="#formulario">📄 Formulario</a></li>
+            <li><a href="#historial">🕘 Historial de solicitudes</a></li>
+        </ul>
+    </nav>
+    <!-- Hero Section -->
+     <section class="hero">
+        <div class="hero-text">
+            <div class="hero-icon">🐾</div>
+            <div><h2>Nuestras mascotas</h2>
+                <p> Ellos también merecen un hogar.
+                    ¡Conoce a tu nuevo mejor amigo!</p>
+            </div>
+        </div>
+        <div class="hero-animals"> 🐶 🐱</div>
+    </section>
+    <!-- Filtro de busqueda -->
+<div class="filtros">
+    <input type="text" id="buscarMascota" placeholder ="🔍 Buscar por nombre o raza...">
+    <select id="filtroEstado"><option value=""> Todos los estados</option>
+    <option value="Disponible"> Disponible </option>
+    <option value="En proceso"> En proceso </option>
+    <option value="Adoptada"> Adoptada </option>
+    </select>
+
+    <select id="filtroEspecie">
+    <option value=""> Todas las especies </option>
+    <option value="Perro"> Perro </option>
+    <option value="Gato"> Gato </option>
+    </select>
+</div>
+<!-- Tarjeta de mascotas -->
+<section class="seccion-principal">
+    <div class="container">
+        <div class="row align-items-start">
+            <div class="col-lg-8">
+                <div class="row" id="contenedor-Mascotas">
+                    <!-- Las tarjetas se generan dinámicamente con JS -->
+                </div>
+            </div>
+<!-- FORMULARIO DE ADOPCIÓN -->
+    <div class="col-lg-4">
+        <div id="contenedor-formulario" class="tarjeta-formulario">
+<!-- Encabezado -->
+    <div class="encabezado-formulario">
+        <div class="icono-formulario">📄</div>
+            <div> <h2>Formulario de adopción</h2>
+            <p>Completa tus datos para solicitar la adopción.</p>
+    </div>
+</div>
+<form novalidate>
+<!-- Mascota -->
+    <div class="mascota-seleccionada">
+        <span>🐾</span>
+            <p>Estas solicitando adoptar a:
+            <strong id="nombreMascotaVisible"></strong></p>
+            <input type="hidden" id="mascota-nombre"></div>
+<!-- Nombre -->
+    <div class="campo-formulario">
+        <label for="exampleInputName">👤 Nombre completo <span>*</span></label>
+        <input type="text"class="form-control"id="exampleInputName"placeholder="Tu nombre">
+        <div class="invalid-feedback">
+            El nombre es inválido. Debe tener al menos 3 caracteres,
+            no debe contener números ni símbolos.
+        </div>
+    </div>
+<!-- Edad -->
+    <div class="campo-formulario">
+        <label for="exampleInputEdad">🎂 Edad <span>*</span></label>
+        <input type="number"class="form-control"id="exampleInputEdad"placeholder="Ej. 25">
+    <div class="invalid-feedback">
+        La edad es inválida. Debe ser un número entero entre 18 y 120.
+    </div>
+</div>
+<!-- Teléfono -->
+    <div class="campo-formulario">
+        <label for="exampleInputTelefono">📞 Teléfono <span>*</span></label>
+        <input type="tel" class="form-control"id="exampleInputTelefono"placeholder="Ej. 300 123 4567">
+<div class="invalid-feedback">
+        El teléfono es inválido. Debe contener 10 dígitos numéricos y comenzar en 3.
+    </div>
+</div>
+<!-- Dirección -->
+    <div class="campo-formulario">
+        <label for="exampleInputDireccion">📍 Dirección <span>*</span></label>
+            <input type="text"class="form-control"id="exampleInputDireccion"placeholder="Ej. Calle 123 # 45-67">
+    <div class="invalid-feedback">La dirección es inválida. Debe tener al menos 5 caracteres.</div>
+</div>
+<!-- Cédula -->
+    <div class="campo-formulario">
+        <label for="exampleInputCedula">🪪 Cédula <span>*</span></label>
+            <input type="text"class="form-control"id="exampleInputCedula"placeholder="Número de cédula">
+    <div class="invalid-feedback">La cédula es inválida. Debe contener entre 6 y 10 dígitos numéricos.</div>
+</div>
+<!-- Mensaje edad -->
+    <div class="mensaje-edad"><span>ⓘ</span>
+        Debes ser mayor de 18 años para poder realizar la solicitud.</div>
+<!-- Mensaje éxito -->
+    <div class="alert alert-success d-none"id="mensajeExito">¡Tu solicitud fue enviada con éxito!</div>
+<!-- Botón -->
+    <button type="submit"class="btn-enviar-solicitud">✈ Enviar solicitud </button>
+</form>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Historial de Solicitudes -->
+    <section class="py-4">
+        <div class="container">
+            <h2>Historial de Solicitudes</h2>
+            <p>Revisa tus solicitudes de adopción anteriores.</p>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Cedula</th>
+                        <th scope="col">Teléfono</th>
+                        <th scope="col">Dirección</th>
+                        <th scope="col"> Mascota solicitada </th>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Estado</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="historialSolicitudes">
+                    <tr>
+                    <td colspan="8" class="text-center text-muted">No hay solicitudes de adopción.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+<!-- Footer -->
+<footer class="footer-mascotas">
+    <div class="container">
+        <div class="footer-contenido">
+            <div class="footer-logo">
+                <h2>🐾 Adopta<span>Me</span></h2>
+                <p>
+                Encuentra un nuevo amigo y dale la oportunidad
+                de tener un hogar lleno de amor.</p>
+            </div>
+            <div class="footer-enlaces">
+                <h3>Enlaces</h3>
+                <a href="#mascotas">Mascotas</a>
+                <a href="#formulario-adopcion">Adopción</a>
+                <a href="#historial">Solicitudes</a>
+            </div>
+            <div class="footer-contacto">
+                <h3>Contáctanos</h3>
+                <p>📧 adopta@gmail.com</p>
+                <p>📞 +57 300 123 4567</p>
+                <p>📍 Colombia</p>
+            </div>
+        </div>
+        <div class="footer-linea"></div>
+        <div class="footer-bottom">
+            <p>© 2026 AdoptaMe. Todos los derechos reservados.</p>
+            <p>Hecho con 🩷 por nuestro equipo</p>
+        </div>
+    </div>
+</footer>
+    <!-- Scripts de JavaScript -->
+    <script src="Js/catalogoMascotas.js"></script>
+    <script src="Js/formulario.js"></script>
+    <script src="Js/validaciones.js"></script>
+    <script src="Js/historial.js"></script>
+    <!-- Scripts de Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>

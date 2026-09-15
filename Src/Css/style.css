@@ -1,0 +1,522 @@
+/* PALETA DE COLORES */
+:root {
+    --morado: #601D49;
+    --rosado: #BD5579;
+    --rosado-claro: #EA9D9D;
+    --crema: #FFEBB8;
+
+    --fondo: #fffaf7;
+    --blanco: #ffffff;
+
+    --texto: #351b2c;
+    --gris: #777;
+}
+/* Pagina principal */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--fondo);
+    color: var(--texto);
+}
+button,input,select {
+    font-family: inherit;
+}
+/* Barra de navegación */
+.navbar {
+    background: var(--morado);
+    color: white;
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+}
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.logo-icon {
+    font-size: 42px;
+}
+.logo h1 {
+    font-size: 25px;
+}
+.logo h1 span {
+    color: var(--rosado-claro);
+}
+.logo p {
+    font-size: 12px;
+    margin-top: 3px;
+}
+.nav-links {
+    display: flex;
+    gap: 10px;
+    list-style: none;
+}
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 14px 20px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+.nav-links a:hover,
+.nav-links .activo {
+    background: var(--rosado);
+}
+/* Hero Section */
+.hero {
+    background: var(--crema);
+    padding: 35px 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.hero-text {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.hero-icon {
+    font-size: 55px;
+}
+.hero h2 {
+    color: var(--morado);
+    font-size: 34px;
+    margin-bottom: 5px;
+}
+.hero p {
+    font-size: 17px;
+}
+.hero-animals {
+    font-size: 65px;
+}
+/* Filtros */
+.filtros {
+    background: #f8dfe7;
+    padding: 15px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 18px;
+}
+.filtros input {
+    flex: 2;
+}
+.filtros select {
+    flex: 1;
+}
+.filtros input,.filtros select {
+    height: 45px;
+    padding: 0 15px;
+    border: 1px solid #d9b4c3;
+    border-radius: 10px;
+    background: white;
+    color: var(--morado);
+    outline: none;
+}
+/* Tarjetas de mascotas */
+#contenedor-Mascotas .card {
+    height: 100%;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(96, 29, 73, 0.12);
+    transition: 0.3s ease;
+}
+#contenedor-Mascotas .card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 12px 25px rgba(96, 29, 73, 0.20);
+}
+/* Imagen */
+#contenedor-Mascotas .card-img-top {
+    width: 60%;
+    height: 230px;
+    object-fit: cover;
+    display: block;
+    transition: 0.4s ease;
+}
+#contenedor-Mascotas .card:hover .card-img-top {
+    transform: scale(1.04);
+}
+/* Contenido */
+#contenedor-Mascotas .card-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+/* Nombre */
+#contenedor-Mascotas .card-title {
+    color: #601D49;
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+/* Descripción */
+#contenedor-Mascotas .card-text {
+    color: #666666;
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 8px;
+}
+/* Edad, raza y especie */
+#contenedor-Mascotas .card-text:nth-of-type(n+2) {
+    background-color: #f9e8ed;
+    color: #601D49;
+    padding: 7px 10px;
+    border-radius: 8px;
+    font-size: 13px;
+}
+/* Estado */
+#contenedor-Mascotas .badge {
+    align-self: flex-start;
+    padding: 8px 13px;
+    border-radius: 20px;
+    margin-top: 8px;
+    margin-bottom: 15px;
+    font-size: 12px;
+    font-weight: bold;
+}
+/* Disponible */
+#contenedor-Mascotas .bg-success {
+    background-color: #d9f0d3 !important;
+    color: #35752e !important;
+}
+/* Adoptado */
+#contenedor-Mascotas .bg-secondary {
+    background-color: #FFEBB8 !important;
+    color: #795d16 !important;
+}
+/* En proceso */
+#contenedor-Mascotas .bg-warning {
+    background-color: #f5d1df !important;
+    color: #601D49 !important;
+}
+/* Botón */
+#contenedor-Mascotas .btn-primary {
+    width: 100%;
+    background-color: #601D49;
+    border-color: #601D49;
+    color: white;
+    padding: 11px;
+    border-radius: 10px;
+    font-weight: bold;
+    margin-top: auto;
+    transition: 0.3s ease;
+}
+#contenedor-Mascotas .btn-primary:hover {
+    background-color: #BD5579;
+    border-color: #BD5579;
+    transform: translateY(-2px);
+}
+/* Botón deshabilitado */
+#contenedor-Mascotas .btn-primary:disabled {
+    background-color: #e5cfd6;
+    border-color: #e5cfd6;
+    color: #8c6d76;
+    cursor: not-allowed;
+    transform: none;
+}
+/* FORMULARIO DE ADOPCIÓN */
+.seccion-principal {
+    padding: 10px 0 25px;
+}
+.tarjeta-formulario {
+    background: #ffffff;
+    border: 1px solid #d9b4c3;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(96, 29, 73, 0.10);
+}
+/* Encabezado */
+.encabezado-formulario {
+    background: #601D49;
+    color: white;
+    padding: 12px 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.icono-formulario {
+    background: white;
+    color: #601D49;
+    width: 32px;
+    height: 32px;
+    border-radius: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+}
+.encabezado-formulario h2 {
+    font-size: 18px;
+    margin: 0;
+    font-weight: bold;
+}
+.encabezado-formulario p {
+    font-size: 10px;
+    margin: 2px 0 0;
+}
+
+/* Contenido */
+.tarjeta-formulario form {
+    padding: 12px;
+}
+/* Mascota seleccionada */
+.mascota-seleccionada {
+    background: #f9e8ed;
+    border-radius: 8px;
+    padding: 8px 10px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+.mascota-seleccionada span {
+    color: #BD5579;
+}
+.mascota-seleccionada p {
+    margin: 0;
+    font-size: 11px;
+    color: #601D49;
+}
+.mascota-seleccionada strong {
+    color: #BD5579;
+}
+/* Campos */
+.campo-formulario {
+    margin-bottom: 10px;
+}
+.campo-formulario label {
+    display: block;
+    color: #601D49;
+    font-size: 11px;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+.campo-formulario label span {
+    color: #BD5579;
+}
+.campo-formulario .form-control {
+    height: 34px;
+    border: 1px solid #e0c2ce;
+    border-radius: 6px;
+    font-size: 11px;
+    padding: 6px 9px;
+    color: #601D49;
+    background: #fffafa;
+}
+.campo-formulario .form-control:focus {
+    border-color: #BD5579;
+    box-shadow: 0 0 0 2px rgba(189, 85, 121, 0.12);
+}
+/* Mensajes de error */
+.campo-formulario .invalid-feedback {
+    font-size: 9px;
+    margin-top: 3px;
+}
+/* Aviso de edad */
+.mensaje-edad {
+    background: #f9e0e8;
+    color: #601D49;
+    border-radius: 7px;
+    padding: 8px;
+    font-size: 9px;
+    margin: 8px 0;
+}
+.mensaje-edad span {
+    font-weight: bold;
+    margin-right: 3px;
+}
+/* Botón */
+.btn-enviar-solicitud {
+    width: 100%;
+    border: none;
+    background: #601D49;
+    color: white;
+    padding: 9px;
+    border-radius: 7px;
+    font-size: 11px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.btn-enviar-solicitud:hover {
+    background: #BD5579;
+}
+/* Mensaje de éxito */
+#mensajeExito {
+    font-size: 11px;
+    padding: 8px;
+    margin-bottom: 8px;
+}
+/* RESPONSIVE */
+@media (max-width: 991px) {
+    .tarjeta-formulario {
+    margin-top: 20px;
+    }
+}
+/* HISTORIAL DE SOLICITUDES */
+.py-4 {
+    padding-top: 20px !important;
+    padding-bottom: 30px !important;
+}
+.py-4 .container {
+    background-color: #ffffff;
+    border: 1px solid #d9b4c3;
+    border-radius: 12px;
+    padding: 0;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(96, 29, 73, 0.10);
+}
+/* Título */
+.py-4 .container > h2 {
+    background-color: #601D49;
+    color: white;
+    margin: 0;
+    padding: 12px 18px 4px;
+    font-size: 18px;
+    font-weight: bold;
+}
+/* Descripción */
+.py-4 .container > p {
+    background-color: #601D49;
+    color: white;
+    margin: 0;
+    padding: 0 18px 12px;
+    font-size: 11px;
+}
+/* Tabla */
+.py-4 .table {
+    margin: 0;
+    width: 100%;
+    font-size: 11px;
+}
+/* Encabezados */
+.py-4 .table thead {
+    background-color: #f5dce5;
+}
+.py-4 .table thead th {
+    color: #601D49;
+    font-weight: bold;
+    border: none;
+    padding: 10px 8px;
+    white-space: nowrap;
+}
+/* Filas */
+.py-4 .table tbody td {
+    color: #555;
+    padding: 9px 8px;
+    border-color: #f0dce3;
+    vertical-align: middle;
+}
+/* Efecto al pasar el mouse */
+.py-4 .table tbody tr:hover {
+    background-color: #fff7f9;
+}
+/* Mensaje cuando no hay solicitudes */
+#historialSolicitudes .text-muted {
+    color: #999 !important;
+    padding: 25px !important;
+}
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .py-4 .container {
+    overflow-x: auto;
+    }
+    .py-4 .table {
+    min-width: 900px;
+    }
+}
+/* FOOTER */
+.footer-mascotas {
+    background-color: #601D49;
+    color: white;
+    margin-top: 40px;
+    padding: 35px 0 15px;
+}
+.footer-contenido {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+}
+.footer-logo {
+    max-width: 350px;
+}
+.footer-logo h2 {
+    margin: 0 0 10px;
+    font-size: 24px;
+    font-weight: bold;
+}
+.footer-logo h2 span {
+    color: #EA9D9D;
+}
+.footer-logo p {
+    color: #f5dce5;
+    font-size: 13px;
+    line-height: 1.6;
+}
+.footer-enlaces,.footer-contacto {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+.footer-enlaces h3,
+.footer-contacto h3 {
+    color: #FFEBB8;
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+.footer-enlaces a {
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+    transition: 0.3s;
+}
+.footer-enlaces a:hover {
+    color: #EA9D9D;
+    padding-left: 4px;
+}
+.footer-contacto p {
+    margin: 0;
+    color: #f5dce5;
+    font-size: 13px;
+}
+.footer-linea {
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 25px 0 15px;
+}
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.footer-bottom p {
+    margin: 0;
+    color: #e8cbd7;
+    font-size: 11px;
+}
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .footer-contenido {
+        flex-direction: column;
+        gap: 25px;
+    }
+    .footer-logo {
+        max-width: 100%;
+    }
+    .footer-bottom {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+    }
+}
