@@ -7,6 +7,6 @@ El presente proyecto, "Adopta Feliz", es una aplicación web desarrollada con HT
 # Reglas de negocio implementadas
 El sistema se rige por tres reglas de negocio principales, definidas antes del desarrollo:
 
--La edad de la mascota debe estar entre 0 meses y 25 años.
--Si una mascota se encuentra en estado "En Proceso", el botón "Solicitar Adopción" debe estar deshabilitado.
--El formulario de adopción exige que el adoptante sea mayor de 18 años.
+#La edad de la mascota debe estar entre 0 meses y 25 años.
+#Si una mascota se encuentra en estado "En Proceso", el botón "Solicitar Adopción" debe estar deshabilitado.
+#El formulario de adopción exige que el adoptante sea mayor de 18 años.
