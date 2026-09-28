@@ -60,10 +60,9 @@ localStorage.setItem('mascotas', JSON.stringify(mascotas));
 const contenedorMascotas = document.getElementById('contenedor-Mascotas');
 /* Recorrer el array */
 mascotas.forEach(mascota => {
-/*Calcular la edad en años */
-const edad = calcularEdadMascota(mascota.edadMeses);
-let Anios = edad.anios;
-let mesesRestantes = edad.mesesRestantes;
+/*Muestra el calcula de la edad de las mascota  */
+const textoEdad = formatearEdadMascota(mascota.edadMeses);
+
 /* Determina el color para cada estado */
 let colorEstado;
 
@@ -94,7 +93,7 @@ contenedorMascotas.innerHTML += `
         <div class="card-body">
             <h5 class="card-title">${mascota.nombre}</h5>
             <p class="card-text">${mascota.descripcion}</p>
-            <p class="card-text">Edad: ${Anios} años y ${mesesRestantes} meses</p>
+            <p class="card-text">Edad: ${textoEdad}</p>
             <p class="card-text">Raza: ${mascota.raza}</p>
             <p class="card-text">Especie: ${mascota.especie}</p>
             <span class="badge ${colorEstado}">${mascota.estado}</span>

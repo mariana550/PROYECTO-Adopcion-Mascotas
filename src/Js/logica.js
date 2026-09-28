@@ -7,6 +7,10 @@ function validarEdad(valor){
 
     return !(edadValor < 18 || edadValor > 120 || !edadRegex.test(edadValor) || edadFloat !== edadValor);
 }
+//Validacion de la edad de la mascota: entero entre 0 y 300 meses (25 años)
+function validarEdadMascota(edadMeses) {
+    return Number.isInteger(edadMeses) && edadMeses >= 0 && edadMeses <= 300;
+}
 //Validacion del nombre 
 function validarNombre(valor){
     const nombreValor = String(valor).trim();
@@ -35,15 +39,28 @@ function validarCedula(valor){
 
     return !(cedulaValor.length < 6 || cedulaValor.length > 10 || !cedulaRegex.test(cedulaValor));
 }
-//Validacion en el calculo de la edad de las macotas
+//Validacion en el calculo de la edad de las mascotas
 function calcularEdadMascota(edadMeses){
+    if (!validarEdadMascota(edadMeses)) {
+        return null;
+    }
     const anios = Math.floor(edadMeses / 12);
     const mesesRestantes = edadMeses % 12;
 
     return { anios: anios , mesesRestantes: mesesRestantes};
-
 }
-//Este bloque sirve para que el archive funcione el pruebas de jest y pueda importarla e exportalas
+//Formato del texto de la edad de la mascota, con singular y plural
+function formatearEdadMascota(edadMeses) {
+    const edad = calcularEdadMascota(edadMeses);
+    if (edad === null) {
+        return 'Edad no válida';
+    }
+    const textoAnios = edad.anios === 1 ? '1 año' : `${edad.anios} años`;
+    const textoMeses = edad.mesesRestantes === 1 ? '1 mes' : `${edad.mesesRestantes} meses`;
+
+    return `${textoAnios} y ${textoMeses}`;
+}
+//Este bloque sirve para que el archivo funcione en pruebas de jest y pueda importarla e exportalas
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { validarEdad, validarNombre, validarTelefono, validarDireccion, validarCedula, calcularEdadMascota };
+    module.exports = { validarEdad, validarNombre, validarTelefono, validarDireccion, validarCedula, calcularEdadMascota, validarEdadMascota, formatearEdadMascota };
 }
