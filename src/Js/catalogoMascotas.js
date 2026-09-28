@@ -1,3 +1,4 @@
+/* Arreglo  de mascotas  */
 const mascotasIniciales = [
     {
         "nombre": "Aron",
@@ -60,7 +61,7 @@ localStorage.setItem('mascotas', JSON.stringify(mascotas));
 const contenedorMascotas = document.getElementById('contenedor-Mascotas');
 /* Recorrer el array */
 mascotas.forEach(mascota => {
-/*Muestra el calcula de la edad de las mascota  */
+/*Muestra el calculo de la edad de las mascotas  */
 const textoEdad = formatearEdadMascota(mascota.edadMeses);
 
 /* Determina el color para cada estado */

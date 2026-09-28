@@ -1,11 +1,12 @@
-    {
-    "name": "adopcion-mascotas",
-    "version": "1.0.0",
-    "description": "Plataforma de adopcion de mascotas - Calidad y Pruebas de Software",
-    "scripts": {
-        "test": "jest"
-    },
-    "devDependencies": {
-        "jest": "^30.5.2"
+{
+"name":"adopcion-mascotas",
+"version":"1.0.0",
+"description":"Plataforma de adopcion de mascotas - Calidad y Pruebas de Software",
+"scripts":{
+"test":"jest"
+},
+"devDependencies":{
+"jest":"^30.5.2"
     }
-    }
+}
+

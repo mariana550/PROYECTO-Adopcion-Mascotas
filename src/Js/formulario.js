@@ -1,11 +1,11 @@
 function abrirFormularioAdopcion(nombreMascota) {
 
-    // Mostrar el formulario de adopción
+    // Muestra  el formulario de adopción
     const formularioAdopcion = document.getElementById('contenedor-formulario');
 
     formularioAdopcion.style.display = 'block';
 
-    // Rellenar el campo de nombre de la mascota en el formulario
+    // Rellena el campo del nombre de la mascota en el formulario
     const nombreMascotaInput = document.getElementById('mascota-nombre');
     nombreMascotaInput.value = nombreMascota;
 

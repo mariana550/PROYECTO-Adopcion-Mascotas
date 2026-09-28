@@ -60,7 +60,7 @@ function formatearEdadMascota(edadMeses) {
 
     return `${textoAnios} y ${textoMeses}`;
 }
-//Este bloque sirve para que el archivo funcione en pruebas de jest y pueda importarla e exportalas
+//Este bloque sirve para que el archivo funcione en pruebas y pueda importarlas e exportalas
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = { validarEdad, validarNombre, validarTelefono, validarDireccion, validarCedula, calcularEdadMascota, validarEdadMascota, formatearEdadMascota };
 }
