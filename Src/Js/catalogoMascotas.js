@@ -1,6 +1,6 @@
-const mascotas = [
+const mascotasIniciales = [
     {
-        "nombre": "Max",
+        "nombre": "Aron",
         "edadMeses": 36,
         "raza": "Labrador",
         "descripcion": "Un perro juguetón y leal.",
@@ -36,24 +36,34 @@ const mascotas = [
         "imagen": "Img/persa.jpg"
     },
     {
-        "nombre": "Rocky",
-        "edadMeses": 48,
+        "nombre": "Max",
+        "edadMeses": 12,
         "raza": "Bulldog",
         "descripcion": "Un perro valiente y protector.",
         "especie": "Perro",
         "estado": "Disponible",
-        "imagen": "Img/bulldog.avif"
+        "imagen": "Img/Max..jpeg"
+    },
+    {
+        "nombre": "lulu",
+        "edadMeses": 18,
+        "raza": "Pincher",
+        "descripcion": "Una perra pequeña y enérgica.",
+        "especie": "Perro",
+        "estado": "Adoptado",
+        "imagen": "Img/lulu.jpeg"
     }
-]
+];
+let mascotas = JSON.parse(localStorage.getItem('mascotas')) || mascotasIniciales;
+localStorage.setItem('mascotas', JSON.stringify(mascotas));
 /* Leer el array de mascotas */
 const contenedorMascotas = document.getElementById('contenedor-Mascotas');
 /* Recorrer el array */
 mascotas.forEach(mascota => {
 /*Calcular la edad en años */
-let Anios = Math.floor(mascota.edadMeses / 12);
-/* Calcula los meses restantes */
-let mesesRestantes = mascota.edadMeses % 12;
-
+const edad = calcularEdadMascota(mascota.edadMeses);
+let Anios = edad.anios;
+let mesesRestantes = edad.mesesRestantes;
 /* Determina el color para cada estado */
 let colorEstado;
 
