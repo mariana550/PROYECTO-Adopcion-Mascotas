@@ -1,0 +1,30 @@
+services:
+    # Servidor de SonarQube para el análisis estático
+  sonarqube:
+    image: sonarqube:community
+    ports:
+      - "9000:9000"
+    environment:
+      - SONAR_ES_BOOTSTRAP_CHECKS_DISABLE=true
+    volumes:
+      - sonarqube_data:/opt/sonarqube/data
+    # Contenedor que ejecuta las pruebas unitarias
+  unit-tests:
+    build: .
+    command: npm test
+    volumes:
+      - .:/app
+      - /app/node_modules
+    # Escáner que analiza el código y envía los resultados a SonarQube
+  sonar-scanner:
+    image: sonarsource/sonar-scanner-cli
+    profiles: ["scan"]
+    depends_on:
+      - sonarqube
+    environment:
+      - SONAR_HOST_URL=http://sonarqube:9000
+      - SONAR_TOKEN=${SONAR_TOKEN}
+    volumes:
+      - .:/usr/src
+volumes:
+  sonarqube_data:

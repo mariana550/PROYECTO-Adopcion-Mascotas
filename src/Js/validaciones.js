@@ -82,7 +82,7 @@ if (formularioValido) {
     
     formulario.reset();
 
-    // Mostrar el hsitorial de solicitudes actualizado
+    // Mostrar el historial de solicitudes actualizado
     mostrarHistorial();
 }
 });
