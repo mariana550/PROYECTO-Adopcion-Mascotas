@@ -12,10 +12,10 @@ describe('validarEdad',() => {
     test('UT-01: rechaza 17 años, límite inferior - 1 (REQ11)',() =>{
         expect(validarEdad('17')).toBe(false);
     });
-    test('UT-02: acepta 18 años, límite superior 1 (REQ11)',() =>{
+    test('UT-02: acepta 18 años, límite inferior (REQ11)',() =>{
         expect(validarEdad('18')).toBe(true);
     });
-    test('UT-03: acepta 120 años, límite superior 1 (REQ12)',() =>{
+    test('UT-03: acepta 120 años, límite superior (REQ12)',() =>{
         expect(validarEdad('120')).toBe(true);
     });
     test('UT-04: rechaza 121 años, límite superior +1 (REQ12)',() =>{
@@ -39,7 +39,7 @@ describe('validarNombre',()=>{
     test('UT-09: Rechaza limite inferior -1 (REQ13)',()=>{
         expect(validarNombre('Al')).toBe(false);
     });
-    test('UT-10: Acepta valor minimo 1 (REQ13)',()=>{
+    test('UT-10: acepta 3 caracteres, límite inferior (REQ13)',()=>{
         expect(validarNombre('Ana')).toBe(true);
     });
     test('UT-11: Rechaza nombre con numeros (REQ13)',()=>{
@@ -66,7 +66,7 @@ describe('validarTelefono',()=>{
     test('UT-17: Rechaza el telefono con 11 digitos valor maximo +1  (REQ14)',()=>{
         expect(validarTelefono('31456789045')).toBe(false);
     });
-    test('UT-18: Rechaza el telefono con espacios',()=>{
+    test('UT-18: rechaza el teléfono con espacios (REQ27)',()=>{
         expect(validarTelefono('314 5678 904')).toBe(false);
     });
 });
@@ -78,13 +78,13 @@ describe('validarDireccion',()=>{
     test('UT-20: Se rechaza el valor minimo -1 (4 caracteres) (REQ16)',()=>{
         expect(validarDireccion('Cl 1')).toBe(false);
     });
-    test('UT-21: Se acepta el valor minimio (5 caracteres)(REQ16)',()=>{
+    test('UT-21: acepta el mínimo, 5 caracteres (REQ16)',()=>{
         expect(validarDireccion('Cl 12')).toBe(true);
     });
-    test('UT-22: Se acepta valor minimo (100 caracteres) (REQ16)',()=>{
+    test('UT-22: acepta el máximo, 100 caracteres (REQ16) (REQ16)',()=>{
         expect(validarDireccion('a'.repeat(100))).toBe(true);
     });
-    test('UT-23: Se rechaza  valor maximo (101 caracteres) (REQ16)',()=>{
+    test('UT-23: rechaza el máximo + 1, 101 caracteres (REQ16)',()=>{
         expect(validarDireccion('a'.repeat(101))).toBe(false);
     });
     test('UT-24: Se rechaza si ingresan codigo "html,scripts" (REQ26)',()=>{
@@ -93,19 +93,19 @@ describe('validarDireccion',()=>{
 });
 //Grupo para validar las pruebas de la cedula 
 describe('validarCedula',()=>{
-    test('UT-25: Rechaza el valor minimo inferior -1',()=>{
+    test('UT-25: Rechaza el valor minimo inferior -1 (REQ15)',()=>{
         expect(validarCedula('12345')).toBe(false);
     });
-    test('UT-26: Acepta el valor minimo',()=>{
+    test('UT-26: Acepta el valor minimo (REQ15)',()=>{
         expect(validarCedula('123456')).toBe(true);
     });
-    test('UT-27: Acepta el valor maximo ',()=>{
+    test('UT-27: Acepta el valor maximo (REQ15)',()=>{
         expect(validarCedula('1234567890')).toBe(true);
     });
-    test('UT-28: Rechaza el valor maximo +1 ',()=>{
+    test('UT-28: Rechaza el valor maximo +1 (REQ15)',()=>{
         expect(validarCedula('123456789101')).toBe(false);
     });
-    test('UT-29: Rechaza la combinacion de numeros y letras ',()=>{
+    test('UT-29: Rechaza la combinacion de numeros y letras (REQ15)',()=>{
         expect(validarCedula('145ab45hy6')).toBe(false);
     });
 }); 
